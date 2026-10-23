@@ -598,18 +598,24 @@ button:focus-visible {
    Application ID
    ======================================== */
 
+
 .application-id {
-  background: var(--cream);
+  display: inline-flex;
+  align-items: center;
+
+  background: var(--purple);
   border: 2px solid var(--ink);
   border-radius: var(--radius-sm);
+  box-shadow: 2px 2px 0 var(--ink);
 
   padding: 5px 10px;
 
-  color: var(--purple);
+  color: var(--cream);
   font: 700 14px var(--pixel);
   letter-spacing: 1px;
   white-space: nowrap;
 }
+
 
 
 /* ========================================
