@@ -595,6 +595,24 @@ button:focus-visible {
 
 
 /* ========================================
+   Application ID
+   ======================================== */
+
+.application-id {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+
+  padding: 5px 10px;
+
+  color: var(--purple);
+  font: 700 14px var(--pixel);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+
+/* ========================================
    Responsive: Tablet (850px)
    ======================================== */
 
