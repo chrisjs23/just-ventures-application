@@ -100,7 +100,7 @@ const pages = {
 
   learned: {
     title: 'What I Learned',
-    status: 'what_i_learned.txt · draft',
+    status: 'what_i_learned.txt',
     html: `
       <p class="eyebrow">02 / SOMETHING I TAUGHT MYSELF</p>
 
@@ -169,7 +169,7 @@ const pages = {
 
   why: {
     title: 'Why Just Ventures',
-    status: 'why_just_ventures.txt · draft',
+    status: 'why_just_ventures.txt',
     html: `
       <p class="eyebrow">03 / WHY I'M APPLYING</p>
 
