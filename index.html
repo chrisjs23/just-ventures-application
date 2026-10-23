@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#46425e" />
+  <meta name="description" content="A small interactive desktop about Chris and his Just Ventures application." />
+  <title>Chris's Desktop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="desktop" id="desktop">
+    <header class="topbar" aria-label="Desktop header">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">✳</span> CHRIS / DESKTOP</div>
+      <span class="topbar-caption">A LITTLE CORNER OF THE INTERNET</span>
+      <span class="topbar-symbol" aria-hidden="true">◆ ◆ ◆</span>
+    </header>
+
+    <main class="desktop-area" aria-label="Interactive desktop">
+      <div class="wallpaper-decor wallpaper-decor--one" aria-hidden="true"></div>
+      <div class="wallpaper-decor wallpaper-decor--two" aria-hidden="true"></div>
+      <div class="wallpaper-stamp" aria-hidden="true">MADE WITH CURIOSITY <span>✳</span></div>
+
+      <nav class="shortcuts" aria-label="Desktop shortcuts">
+        <button class="shortcut" type="button" data-open="about" aria-label="Open About Me">
+          <span class="shortcut-art shortcut-art--profile" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path fill="#46425e" d="M11 7h26v34H11z"/><path fill="#ffeecc" d="M14 10h20v28H14z"/><path fill="#ffb0a3" d="M20 14h8v4h4v10h-4v3h-8v-3h-4V18h4z"/><path fill="#46425e" d="M19 20h3v3h-3zm8 0h3v3h-3zm-5 7h6v2h-6z"/><path fill="#00b9be" d="M17 33h14v3H17z"/></svg></span>
+          <span class="shortcut-label">About Me</span>
+        </button>
+        <button class="shortcut" type="button" data-open="learned" aria-label="Open What I Learned">
+          <span class="shortcut-art shortcut-art--learned" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path fill="#46425e" d="M7 7h34v34H7z"/><path fill="#ffeecc" d="M10 10h28v28H10z"/><path fill="#15788c" d="M15 14h18v3H15zm0 7h14v3H15zm0 7h18v3H15z"/><path fill="#ff6973" d="M30 22h4v4h-4z"/></svg></span>
+          <span class="shortcut-label">What I Learned</span>
+        </button>
+        <button class="shortcut" type="button" data-open="why" aria-label="Open Why Just Ventures">
+          <span class="shortcut-art shortcut-art--why" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path fill="#46425e" d="M8 9h32v30H8z"/><path fill="#ffeecc" d="M11 12h26v24H11z"/><path fill="#15788c" d="M22 15h4v6h-4zm-7 7h6v4h-6zm12 0h6v4h-6zm-5 5h4v6h-4z"/><path fill="#ff6973" d="M22 22h4v4h-4z"/></svg></span>
+          <span class="shortcut-label">Why Just Ventures</span>
+        </button>
+        <button class="shortcut" type="button" data-open="welcome" aria-label="Open Welcome">
+          <span class="shortcut-art shortcut-art--welcome" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path fill="#46425e" d="M5 8h38v28H5zM17 36h14v4H17z"/><path fill="#00b9be" d="M8 11h32v22H8z"/><path fill="#ffeecc" d="M15 19h5v5h-5zm13 0h5v5h-5zm-6 8h6v3h-6z"/></svg></span>
+          <span class="shortcut-label">Start Here</span>
+        </button>
+      </nav>
+
+      <section class="window" id="app-window" role="dialog" aria-labelledby="window-title" aria-modal="false" tabindex="-1">
+        <div class="window-titlebar">
+          <div class="window-titlegroup"><span class="titlebar-glyph" aria-hidden="true">✳</span><span id="window-title">Welcome!</span></div>
+          <button class="close-button" id="close-window" type="button" aria-label="Close window">×</button>
+        </div>
+        <div class="window-panel">
+          <div id="window-content" aria-live="polite"></div>
+        </div>
+        <div class="window-footer"><span id="window-status">1 item · ready to explore</span><span class="footer-dots" aria-hidden="true">▪ ▪ ▪</span></div>
+      </section>
+    </main>
+
+    <footer class="taskbar" aria-label="Desktop taskbar">
+      <button class="start-button" id="start-button" type="button" aria-label="Open welcome window"><span aria-hidden="true">✳</span> START</button>
+      <button class="task-tab" id="task-tab" type="button" aria-label="Show current window"><span class="task-indicator" aria-hidden="true"></span><span id="task-title">Welcome!</span></button>
+      <span class="taskbar-spacer"></span>
+      <span class="taskbar-tip">CLICK AN ICON TO EXPLORE</span>
+      <span class="taskbar-clock" id="clock" aria-label="Current time">--:--</span>
+    </footer>
+  </div>
+</body>
+</html>

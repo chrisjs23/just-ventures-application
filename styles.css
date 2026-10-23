@@ -1,0 +1,767 @@
+
+/* ========================================
+   Theme Variables
+   ======================================== */
+
+:root {
+  --purple: #46425e;
+  --teal: #15788c;
+  --cyan: #00b9be;
+  --cream: #ffeecc;
+  --peach: #ffb0a3;
+  --coral: #ff6973;
+
+  --ink: #2d2941;
+  --shade: #373249;
+  --light: #fff8e8;
+
+  --pixel: 'Custom Pixel', monospace;
+  --body: 'DM Sans', sans-serif;
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+@font-face {
+  font-family: 'Custom Pixel';
+  src: url('./fonts/boldpixels.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ========================================
+   Global Styles
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--purple);
+  color: var(--cream);
+  font-family: var(--body);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+
+/* ========================================
+   Desktop Layout
+   ======================================== */
+
+.desktop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--purple);
+}
+
+
+/* ========================================
+   Top Bar
+   ======================================== */
+
+.topbar {
+  height: 43px;
+  background: var(--peach);
+  border-bottom: 4px solid var(--ink);
+  color: var(--purple);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 0 21px;
+  font: 700 16px var(--pixel);
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.brand {
+  white-space: nowrap;
+}
+
+.brand-mark {
+  color: var(--teal);
+  font-size: 24px;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
+.topbar-caption {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.topbar-symbol {
+  color: var(--teal);
+  letter-spacing: 3px;
+}
+
+
+/* ========================================
+   Desktop Area & Wallpaper
+   ======================================== */
+
+.desktop-area {
+  flex: 1;
+  position: relative;
+  min-height: 520px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: clamp(28px, 5vw, 72px) 24px 42px;
+  isolation: isolate;
+}
+
+.desktop-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(
+    #ffeecc19 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+
+  z-index: -3;
+  pointer-events: none;
+}
+
+.wallpaper-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.75;
+}
+
+.wallpaper-decor--one {
+  width: 270px;
+  height: 270px;
+  right: -86px;
+  top: 40px;
+
+  border: 24px solid #15788c70;
+  transform: rotate(18deg);
+}
+
+.wallpaper-decor--two {
+  width: 190px;
+  height: 190px;
+  left: 21%;
+  bottom: -130px;
+
+  border: 18px solid #ffb0a332;
+  transform: rotate(36deg);
+}
+
+.wallpaper-stamp {
+  position: absolute;
+  right: 42px;
+  bottom: 38px;
+
+  font: 700 17px var(--pixel);
+  letter-spacing: 1px;
+  color: #ffeecc76;
+
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.wallpaper-stamp span {
+  color: var(--peach);
+}
+
+
+/* ========================================
+   Desktop Shortcuts
+   ======================================== */
+
+.shortcuts {
+  position: absolute;
+  left: clamp(20px, 4vw, 60px);
+  top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 125px;
+  z-index: 1;
+}
+
+.shortcut {
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--cream);
+
+  padding: 7px 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  max-width: 125px;
+  min-height: 98px;
+  text-align: center;
+}
+
+.shortcut:hover,
+.shortcut.selected {
+  background: #ffeecc1c;
+  border-color: #ffeecc65;
+}
+
+.shortcut:active {
+  transform: translate(1px, 1px);
+}
+
+.shortcut-art {
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+
+  width: 62px;
+  height: 60px;
+
+  filter: drop-shadow(4px 4px 0 #2d2941);
+}
+
+.shortcut-art svg {
+  width: 55px;
+  height: 55px;
+}
+
+.shortcut-label {
+  font: 600 15px/1.05 var(--pixel);
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+
+/* ========================================
+   Window Container
+   ======================================== */
+
+.window {
+  border-radius: var(--radius-lg);
+  width: min(655px, calc(100% - 160px));
+  margin-left: 105px;
+
+  background: var(--peach);
+  border: 4px solid var(--ink);
+  box-shadow: 7px 7px 0 #2925389c;
+
+  z-index: 2;
+  outline: none;
+
+  animation: pop-in 0.16s steps(3, end) both;
+}
+
+.window[hidden] {
+  display: none;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ========================================
+   Window Title Bar
+   ======================================== */
+
+.window-titlebar {
+  border-radius: calc(var(--radius-lg) - 4px) calc(var(--radius-lg) - 4px) 0 0;
+  height: 42px;
+  border-bottom: 3px solid var(--ink);
+  color: var(--ink);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8px 0 13px;
+  font: 700 21px var(--pixel);
+}
+
+.window-titlegroup {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.window-titlegroup span:last-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titlebar-glyph {
+  color: var(--teal);
+  font-size: 21px;
+}
+
+.close-button {
+  border-radius: var(--radius-sm);
+  width: 27px;
+  height: 26px;
+  line-height: 19px;
+
+  background: var(--coral);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  color: var(--ink);
+
+  font: 700 25px var(--pixel);
+
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.close-button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+
+/* ========================================
+   Window Content Panel
+   ======================================== */
+
+.window-panel {
+  border-radius: var(--radius-md);
+  margin: 9px;
+  height: min(410px, calc(100dvh - 235px));
+  min-height: 290px;
+  overflow: auto;
+
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  color: var(--ink);
+
+  scrollbar-color: var(--teal) var(--peach);
+  scrollbar-width: thin;
+}
+
+.window-panel #window-content {
+  padding: clamp(20px, 4vw, 36px);
+}
+
+
+/* ========================================
+   Content Typography
+   ======================================== */
+
+.eyebrow {
+  margin: 0 0 13px;
+
+  font: 700 13px var(--pixel);
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.content-title {
+  margin: 0 0 15px;
+
+  font: 700 clamp(31px, 4vw, 45px)/1.04 var(--pixel);
+  letter-spacing: -0.5px;
+}
+
+.content-description {
+  max-width: 53ch;
+  margin: 0 0 15px;
+
+  font: 400 16px/1.75 var(--body);
+}
+
+.content-description:last-child {
+  margin-bottom: 0;
+}
+
+.content-rule {
+  height: 3px;
+  margin: 22px 0;
+  background: var(--peach);
+}
+
+.content-note {
+  border-radius: var(--radius-sm);
+  background: #ffb0a354;
+  border-left: 5px solid var(--coral);
+
+  padding: 12px 15px;
+
+  color: var(--purple);
+  font: 600 15px/1.5 var(--body);
+}
+
+
+/* ========================================
+   Window Action Buttons
+   ======================================== */
+
+.window-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.ui-button {
+  border-radius: var(--radius-sm);
+  background: var(--cyan);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  color: var(--ink);
+
+  padding: 8px 15px;
+  font: 700 17px var(--pixel);
+}
+
+.ui-button:hover {
+  background: var(--peach);
+}
+
+.ui-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.ui-button--alt {
+  background: var(--peach);
+}
+
+.ui-button--alt:hover {
+  background: var(--cyan);
+}
+
+
+/* ========================================
+   Window Footer
+   ======================================== */
+
+.window-footer {
+  border-radius: 0 0 calc(var(--radius-lg) - 4px) calc(var(--radius-lg) - 4px);
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 13px 5px;
+
+  color: var(--purple);
+  font: 600 13px var(--pixel);
+}
+
+.footer-dots {
+  letter-spacing: 4px;
+  color: var(--teal);
+}
+
+
+/* ========================================
+   Taskbar
+   ======================================== */
+
+.taskbar {
+  height: 57px;
+  background: var(--peach);
+  border-top: 4px solid var(--ink);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 6px 16px;
+  z-index: 3;
+}
+
+.start-button {
+  border-radius: var(--radius-sm);
+  background: var(--cyan);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+
+  padding: 4px 13px;
+
+  color: var(--ink);
+  font: 700 18px var(--pixel);
+  white-space: nowrap;
+}
+
+.start-button span {
+  font-size: 20px;
+}
+
+.start-button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.task-tab {
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  max-width: 190px;
+  height: 33px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 4px 10px;
+
+  color: var(--ink);
+  font: 700 15px var(--pixel);
+}
+
+.task-tab[hidden] {
+  display: none;
+}
+
+.task-indicator {
+  width: 9px;
+  height: 9px;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+.taskbar-spacer {
+  flex: 1;
+}
+
+.taskbar-tip {
+  font: 600 12px var(--pixel);
+  color: var(--purple);
+  letter-spacing: 1px;
+}
+
+.taskbar-clock {
+  border-radius: var(--radius-sm);
+  min-width: 75px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+
+  padding: 5px 9px;
+
+  color: var(--ink);
+  font: 700 16px var(--pixel);
+  text-align: center;
+}
+
+
+/* ========================================
+   Responsive: Tablet (850px)
+   ======================================== */
+
+@media (max-width: 850px) {
+  .desktop-area {
+    padding: 30px 18px 35px;
+    display: block;
+  }
+
+  .shortcuts {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+  }
+
+  .shortcut {
+    width: 110px;
+    min-height: 87px;
+    gap: 2px;
+  }
+
+  .shortcut-art {
+    width: 52px;
+    height: 51px;
+  }
+
+  .shortcut-art svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .window {
+    width: min(665px, 100%);
+    margin: 0 auto;
+  }
+
+  .topbar-caption {
+    display: none;
+  }
+
+  .wallpaper-stamp {
+    display: none;
+  }
+}
+
+
+/* ========================================
+   Responsive: Mobile (480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+  .topbar {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .topbar-symbol {
+    font-size: 10px;
+  }
+
+  .desktop-area {
+    padding: 15px 10px 24px;
+    min-height: 520px;
+  }
+
+  .shortcuts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+
+    margin-bottom: 16px;
+  }
+
+  .shortcut {
+    width: 100%;
+    min-height: 80px;
+    padding: 4px 1px;
+  }
+
+  .shortcut-label {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .shortcut-art {
+    height: 44px;
+    width: 44px;
+  }
+
+  .shortcut-art svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .window-titlebar {
+    font-size: 17px;
+    height: 38px;
+  }
+
+  .window-panel {
+    margin: 6px;
+    min-height: 310px;
+    height: auto;
+    max-height: min(52dvh, 470px);
+  }
+
+  .window-panel #window-content {
+    padding: 18px;
+  }
+
+  .content-title {
+    font-size: 31px;
+  }
+
+  .content-description {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .taskbar {
+    padding: 6px 8px;
+    gap: 7px;
+  }
+
+  .taskbar-tip {
+    display: none;
+  }
+
+  .taskbar-clock {
+    font-size: 14px;
+    min-width: 60px;
+  }
+
+  .start-button {
+    font-size: 15px;
+    padding: 5px 7px;
+  }
+
+  .task-tab {
+    font-size: 13px;
+    min-width: 0;
+  }
+}
+
+
+/* ========================================
+   Accessibility: Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .window {
+    animation: none;
+  }
+
+  .shortcut:active,
+  .ui-button:active,
+  .close-button:active,
+  .start-button:active {
+    transform: none;
+  }
+}
